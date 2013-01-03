@@ -1,0 +1,31 @@
+Protocal Sniffing for wCK-1111 using wCK Programmer
+===================================================
+
+Target ID: 8
+
+Position Move
+-------------
+Torque: 0 
+Pos: 0
+CMD : FF 08 00 08
+
+Torque: 0 
+Pos: 2
+CMD = FF 08 02 0A
+
+Torque: 1
+Pos: 2
+CMD = FF 28 02 2A
+
+Torque: 4
+Pos: 2
+CMD = FF 88 02 0A
+
+Torque: 4
+Pos: 20
+CMD = FF 88 14 1C
+
+Torque: 4
+Pos: 254
+CMD = FF 88 FE 76
+
