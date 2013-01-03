@@ -35,12 +35,12 @@ public:
  	 * @param torque 	Tarque (0-4)
  	 * @param position	Position to move to (0-254)
 	 */
-	uint8_t PosSend(uint8_t torque, uint8_t position);
+	uint8_t posSend(uint8_t torque, uint8_t position);
 	
 	/**
  	 * Read current position
 	 */
-	uint8_t PosRead();
+	uint8_t posRead();
 	
 	/**
  	 * Rotate servo Clockwise
@@ -56,7 +56,7 @@ public:
 private:
 
 	uint8_t servoID; /*!< Servo ID (0-30) */
-	uint8_t GetByte(unsigned long timeout) ;
-	void SendOperCommand(uint8_t Data1, uint8_t Data2);
+	uint8_t getByte(unsigned long timeout) ;
+	void sendOperCommand(uint8_t Data1, uint8_t Data2);
 };
 #endif
