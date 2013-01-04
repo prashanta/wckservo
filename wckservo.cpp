@@ -46,16 +46,16 @@ uint8_t Wckservo::rotateCCW(uint8_t speed){
 uint8_t Wckservo::getByte(unsigned long timeout){
 	unsigned long start = millis();
   	do{
-    	if (Serial1.available())
-      		return Serial.read();
+    	if (SER.available())
+      		return SER.read();
 	}while (millis() - start <= timeout);
   	return 0;
 }
 
 void Wckservo::sendOperCommand(uint8_t Data1, uint8_t Data2){
 	char checkSum = (Data1^Data2)&0x7f;	
-	Serial1.write(HEADER);
-	Serial1.write(Data1);
-	Serial1.write(Data2);
-	Serial1.write(checkSum);
+	SER.write(HEADER);
+	SER.write(Data1);
+	SER.write(Data2);
+	SER.write(checkSum);
 }

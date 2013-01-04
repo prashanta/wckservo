@@ -20,6 +20,7 @@
 #define TIME_OUT1	1000
 #define CW 			4
 #define CCW 		3
+#define SER			Serial1 // change this for appropriate serial class
 
 class Wckservo{
 
