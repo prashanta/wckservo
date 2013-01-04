@@ -11,36 +11,36 @@ Wckservo::Wckservo(uint8_t sid){
 	Serial1.begin(115200); 
 }
 
-uint8_t Wckservo::posSend(uint8_t torque, uint8_t position){
-	uint8_t current;
+uint8_t Wckservo::posMove(uint8_t torque, uint8_t position){
+	uint8_t pos;
 	sendOperCommand((torque<<5)|servoID, position);	
-	getByte(TIME_OUT1);
-	current = getByte(TIME_OUT1);
-	return current;
+	getByte(TIME_OUT1); // this returns LOAD
+	pos = getByte(TIME_OUT1); // this returns POS
+	return pos;
 }
 
 uint8_t Wckservo::posRead(){
-	uint8_t position;
+	uint8_t pos;
 	sendOperCommand(0xa0|servoID, 0x00);
-	getByte(TIME_OUT1);
-	position = getByte(TIME_OUT1);
-	return position;
+	getByte(TIME_OUT1); // this returns LOAD
+	pos = getByte(TIME_OUT1); // this returns POSITION
+	return pos;
 }
 
 uint8_t Wckservo::rotateCW(uint8_t speed){
-	uint8_t current;
+	uint8_t pos;
 	sendOperCommand((6<<5)|servoID, (CW<<4)|speed);
-	getByte(TIME_OUT1);
-	current = getByte(TIME_OUT1);
-	return current;
+	getByte(TIME_OUT1); // this returns LOAD
+	pos = getByte(TIME_OUT1); // this returns POSITION
+	return pos;
 }
 
 uint8_t Wckservo::rotateCCW(uint8_t speed){
-	uint8_t current;
+	uint8_t pos;
 	sendOperCommand((6<<5)|servoID, (CCW<<4)|speed);
-	getByte(TIME_OUT1);
-	current = getByte(TIME_OUT1);
-	return current;
+	getByte(TIME_OUT1); // this returns LOAD
+	pos = getByte(TIME_OUT1); // this returns POSITION
+	return pos;
 }
 	
 uint8_t Wckservo::getByte(unsigned long timeout){

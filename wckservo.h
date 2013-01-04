@@ -28,15 +28,16 @@ public:
 	/**
  	 * Constructor
  	 * Initializes the serial port
+ 	 * @param sid 	ID of servo
 	 */
 	Wckservo(uint8_t sid);		
 	
 	/**
- 	 * Send position move command to servo
+ 	 * Move position 
  	 * @param torque 	Tarque (0-4)
  	 * @param position	Position to move to (0-254)
 	 */
-	uint8_t posSend(uint8_t torque, uint8_t position);
+	uint8_t posMove(uint8_t torque, uint8_t position);
 	
 	/**
  	 * Read current position
